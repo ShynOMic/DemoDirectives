@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    //Pour styliser tout ce qui existe de base en html
+    h1 {
+        @apply text-2xl text-green-800;
+    
+    }
+}
+
+@layer components {
+    //Pour styliser via id, classes et dérivés
+    .btn {
+        @apply bg-slate-800 text-slate-200 border border-slate-800 rounded-md p-2 hover:bg-slate-200 hover:text-slate-800;
+    }
+}
+
+@layer utilities {
+    //Pour tout ce qui est config des actions (hover, focus, darkmode)
+}

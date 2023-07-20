@@ -6,6 +6,10 @@ Prendre la dernière version LTS : <a href="https://nodejs.org/en">En cliquant l
 ```
     npm i -g @angular/cli
 ```
+## Extensions utiles
+- Angular Schematics => exécution de commande via un menu contextuelle
+- Angular Snippets => Raccourcis
+- Angular Language Service => Autocomplétion et cie
 ## Créer un projet
 ```
     ng new "nom du projet"
@@ -24,6 +28,37 @@ Version flemme
 ```
     ng s -o
 ```
+<br/>
+<br/>
+<hr/>
+<br/>
+
+# Installer TailWind
+* <a href="https://tailwindcss.com/docs/guides/angular">Lien vers la doc</a>
+* Installer Tailwind dans le projet
+    ```
+        npm install -D tailwindcss postcss autoprefixer
+    ```
+* Créer le fichier de config tailwind
+    ```
+        npx tailwindcss init
+    ```
+* Ajouter dans le fichier de config 
+    ```
+    content: [
+    "./src/**/*.{html,ts}",
+  ],
+    ```
+* Dans le fichier de style global 
+    ```
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    ```
+* Extension sympatchitk pour Tailwind :
+    Tailwind CSS IntelliSense
+
+
 <br/>
 <br/>
 <hr/>
