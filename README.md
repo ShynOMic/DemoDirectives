@@ -74,3 +74,16 @@ La version flemme
 ```
     ng g c (dossier(s)/)nomComponent
 ```
+## Créer un module
+La version longue
+```
+    ng generate module (dossier/)nomModule
+```
+La version flemme
+```
+    ng g m (dossier/)nomModule
+```
+Si on veut lui associer un routing
+```
+    ng g m (dossier/)nomModule --routing 
+```
