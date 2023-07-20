@@ -9,6 +9,15 @@
         @apply text-2xl text-green-800;
     
     }
+    
+    nav {
+        li {
+            @apply mb-1;
+        }
+        a {
+            @apply text-primary-900 hover:text-white tracking-wide;
+        }
+    }
 }
 
 @layer components {

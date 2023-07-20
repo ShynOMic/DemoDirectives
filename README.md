@@ -55,7 +55,7 @@ Version flemme
     @tailwind components;
     @tailwind utilities;
     ```
-* Extension sympatchitk pour Tailwind :
+* Extension sympatchik pour Tailwind :
     Tailwind CSS IntelliSense
 
 
@@ -65,3 +65,12 @@ Version flemme
 <br/>
 
 # LES COMMANDES POUR CREER DES TRUCS :
+## Créer un composant
+La version longue
+```
+    ng generate component (dossier(s)/)nomComponent
+```
+La version flemme
+```
+    ng g c (dossier(s)/)nomComponent
+```
