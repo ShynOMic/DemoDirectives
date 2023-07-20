@@ -6,8 +6,11 @@
 @layer base {
     //Pour styliser tout ce qui existe de base en html
     h1 {
-        @apply text-2xl text-green-800;
+        @apply text-2xl text-primary-700 uppercase;
     
+    }
+    h2 {
+        @apply text-xl text-slate-900 uppercase;
     }
     
     nav {
