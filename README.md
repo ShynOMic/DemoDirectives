@@ -87,3 +87,13 @@ Si on veut lui associer un routing
 ```
     ng g m (dossier/)nomModule --routing 
 ```
+
+## Créer un pipe
+La version longue
+```
+    ng generate pipe (dossier/)nomPipe
+```
+La version flemme
+```
+    ng g p (dossier/)nomPipe
+```
