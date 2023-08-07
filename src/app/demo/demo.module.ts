@@ -14,6 +14,7 @@ import { Demo1Component } from './demo1/demo1.component';
   imports: [
     CommonModule,
     DemoRoutingModule
-  ]
+  ],
+  bootstrap : [DemoComponent]
 })
 export class DemoModule { }
