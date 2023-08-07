@@ -12,7 +12,12 @@
     h2 {
         @apply text-xl text-slate-900 uppercase mb-2;
     }
-    
+    h3 {
+        @apply text-lg text-slate-600 mb-2;
+    }
+    h4 { 
+        @apply text-slate-600 py-2 border-b border-primary-300;
+    }
     nav {
         li {
             @apply mb-1;
@@ -40,6 +45,9 @@
 
     .chapter {
         @apply bg-primary-100 p-2 mb-2;
+    }
+    .subchapter {
+        @apply p-2 mb-2;
     }
 }
 

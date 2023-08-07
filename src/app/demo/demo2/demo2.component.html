@@ -1,7 +1,7 @@
 <h2>Demo 2 : Les Pipes</h2>
 <div class="chapter">
     <h3>Les pipes existants</h3>
-    <div>
+    <div class="subchapter">
         <h4>Sur les dates</h4>
         <p>La date sans formatage : {{ birthdate | date : 'dd/MM/yyyy' }}</p>
         <p>{{ birthdate | date : 'dd MMMM yyyy'}}</p>
@@ -9,7 +9,7 @@
 
     </div>
     
-    <div>
+    <div class="subchapter">
         <h4>Sur les chaines</h4>
         <p>La chaine sans formatage : {{ fullname }}</p>
         <p>Le pipe uppercase : {{ fullname | uppercase }}</p>
@@ -17,7 +17,7 @@
         <p>Le pipe titlecase : {{ fullname | titlecase }}</p>
     </div>
 
-    <div>
+    <div class="subchapter">
         <h4>Sur les nombres</h4>
         <p>Le nombre sans formatage : {{ price }}</p>
         <p>Le nombre après formatage sans param : {{ price | number }}</p>
