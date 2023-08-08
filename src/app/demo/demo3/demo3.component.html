@@ -11,10 +11,25 @@
 
     <div class="subchapter">
         <h4>ngStyle</h4>
+        <p>Une touche de <span [ngStyle]="{color: favColor, backgroundColor : favColor2}">Chartreuse</span></p>
+        <div id="back">
+            <div id="front" [ngStyle]="{width: width + '%'}"></div>
+        </div>
+
+        <button class="btn" (click)="fill()" [disabled]="timer">Remplir</button>
+        <button class="btn" (click)="empty()" [disabled]="!timer">Vider</button>
     </div>
 
     <div class="subchapter">
         <h4>ngClass</h4>
+        <p [ngClass]="{big: isBig, pink : isPink, italic : isItalic}">Je suis du texte</p>
+        <div>
+            <button (click)="isBig = !isBig" class="btn">Gros/Pas Gros</button>
+
+            <button (click)="isPink = !isPink" class="btn">Rose/Pas rose</button>
+
+            <button (click)="isItalic = !isItalic" class="btn">Italique/Pas Italique</button>
+        </div>
     </div>
 </div>
 
@@ -23,14 +38,53 @@
 
     <div class="subchapter">
         <h4>ngIf</h4>
+        <div *ngIf="isDay">🌞 Jour 🌞</div>
+        <div *ngIf="!isDay">🌜 Nuit 🌛</div>
+
+        <div *ngIf="isDay ; else night ">🌞 Jour 🌞</div>
+        <ng-template #night>
+            <div>🌜 Nuit 🌛</div>
+        </ng-template>
+
+        <button (click)="isDay = !isDay" class="btn">Jour/Nuit</button>
     </div>
 
     <div class="subchapter">
         <h4>ngFor</h4>
+        <h5>Exemple avec liste simple :</h5>
+        <ul>
+            <li *ngFor="let trainerName of trainersNameList; let i = index">
+               {{i}} - {{trainerName}}
+            </li>
+        </ul>
+
+        <div class="flex justify-evenly items-center bg-slate-50 h-44">
+            <div *ngFor="let trainer of trainersList" class="bg-slate-200 h-5/6 w-1/5 rounded-lg flex flex-col items-center" [ngClass]="{'bg-pink-400': trainer.gender === 'f', 'bg-blue-400' : trainer.gender === 'm'}">
+
+                <div>{{ trainer.firstname }} {{ trainer.lastname}}</div>
+                <img class="h-3/6" [src]="trainer.avatar" [alt]="trainer.firstname">
+                <div>{{ trainer.birthdate | date : 'dd/MM/yyyy' }}</div>
+
+            </div>
+
+        </div>
     </div>
 
     <div class="subchapter">
         <h4>ngSwitch</h4>
+        <div [ngSwitch]="meteo">
+            <div *ngSwitchCase=" 'bien' "> Je me sens ☀</div>
+            <div *ngSwitchCase=" 'bof' "> Je me sens ☁</div>
+            <div *ngSwitchCase=" 'pasbien' "> Je me sens 🌧</div>
+            <div *ngSwitchCase=" 'tg' "> Je me sens ⛈</div>
+            <div *ngSwitchDefault>Choisissez votre méteo du jour</div>
+        </div>
+        <div>
+            <button (click)="meteo = 'bien'" class="btn">Bien</button>
+            <button (click)="meteo = 'bof'" class="btn">Bof</button>
+            <button (click)="meteo = 'pasbien'" class="btn">Pas Bien</button>
+            <button (click)="meteo = 'tg'" class="btn">TG</button>
+        </div>
     </div>
 </div>
 
