@@ -26,6 +26,12 @@
             @apply text-primary-900 hover:text-white tracking-wide;
         }
     }
+    a:not(nav a) {
+        @apply text-slate-600 pb-1 border-b border-orange-600;
+        &:hover {
+            @apply text-orange-600 border-slate-600;
+        }
+    }
 }
 
 @layer components {
