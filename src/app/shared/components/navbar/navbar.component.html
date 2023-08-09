@@ -1,4 +1,4 @@
-<nav class="h-full bg-primary-200">
+<!-- <nav class="h-full bg-primary-200">
     <ul class="flex flex-col py-2 px-4">
         <li><a routerLink="/">Accueil</a></li>
         <li>
@@ -19,6 +19,25 @@
             <a routerLink="/exo">Les Exos</a>
             <ul class="px-4">
                 <li> <a routerLink="/exo/exo1">Exo 1 : Le Timer</a> </li>
+            </ul>
+        </li>
+    </ul>
+</nav> -->
+
+<nav class="h-full bg-primary-200">
+    <ul class="flex flex-col py-2 px-4">
+
+        <li *ngFor="let link of links" >
+            <!-- v1 -->
+            <!-- <a (click)="link.isVisible = !link.isVisible" [routerLink]="link.url"> {{ link.title }} </a> -->
+            <!-- v2 -->
+            <a (click)="display(link)" [routerLink]="link.url"> {{ link.title }} </a>
+
+            <ul *ngIf="link.isVisible" class="px-4">
+
+                <li *ngFor="let child of link.children">
+                    <a [routerLink]="child.url"> {{child.title}} </a>
+                </li>
             </ul>
         </li>
     </ul>
