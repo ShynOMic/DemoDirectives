@@ -3,7 +3,12 @@
 
     <div class="w-4/5 m-auto px-2 py-1 border border-pink-800">
         <h3>Je suis le composant parent</h3>
-        <app-enfant></app-enfant>
+        <p> {{besoinEnfant}} </p>
+
+        <app-enfant (onNeedSelect)="receiveNeed($event)"
+            [prenomParent]="prenom" 
+            [hobbiesParent]="['Pétanque', 'Ricard', 'Le foute']">
+        </app-enfant>
     </div>
 
 </div>
