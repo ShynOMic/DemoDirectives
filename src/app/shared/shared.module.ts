@@ -5,6 +5,7 @@ import { ConvertTempPipe } from './pipes/convert-temp.pipe';
 import { ConvertTimePipe } from './pipes/convert-time.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
 import { TrainerCardComponent } from './components/trainer-card/trainer-card.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,14 +18,16 @@ import { TrainerCardComponent } from './components/trainer-card/trainer-card.com
     TrainerCardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports : [
     ToFahrenheitPipe,
     ConvertTempPipe,
     ConvertTimePipe,
     HighlightDirective,
-    TrainerCardComponent
+    TrainerCardComponent,
+    FormsModule
   ]
 })
 export class SharedModule { }

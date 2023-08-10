@@ -16,7 +16,8 @@ export class NavbarComponent {
       { title : 'Demo 4 : Input & Output', url : '/demo/demo4'}
      ]},
      { title : 'Les Exos', url : '/exo', isVisible : false, children : [
-      { title : 'Exo 1 : Le Timer', url : '/exo/exo1'}
+      { title : 'Exo 1 : Le Timer', url : '/exo/exo1'},
+      { title : 'Exo 2 : La Shopping List V1', url : '/exo/exo2'}
      ]}
    ];
 
