@@ -1,0 +1,11 @@
+<p>exo3 works!</p>
+<h2>Exercice Shopping List V2</h2>
+<div class="chapter">
+    <div>
+        <input type="text" placeholder="Nom du produit" [(ngModel)]="productName" (keyup.Enter)="addProduct()">
+        <button (click)="addProduct()" class="btn">Ajouter</button>
+    </div>
+
+
+    <app-shopping-list></app-shopping-list>
+</div>
