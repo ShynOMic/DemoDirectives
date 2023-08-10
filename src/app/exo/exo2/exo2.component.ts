@@ -4,7 +4,7 @@ import { Product } from 'src/app/shared/models/product';
 @Component({
   selector: 'app-exo2',
   templateUrl: './exo2.component.html',
-  styleUrls: ['./exo2.component.scss']
+  styleUrls: ['./exo2.component.scss'],
 })
 export class Exo2Component {
   productsList : Product[] = [
