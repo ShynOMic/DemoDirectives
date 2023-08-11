@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-demo6',
@@ -22,9 +22,27 @@ export class Demo6Component {
       password : [null, [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]],
       gender : [null],
       single : [false, [Validators.required]],
-      nationality : ['', [Validators.required]]
-    })
+      nationality : ['', [Validators.required]],
+      //Hobbies n'est pas UN control mais un tableau avec plusieurs controls
+      hobbies : this._fb.array([]),
+     
+    });
   }
+
+  //getter pour récupérer les hobbies de notre FormGroup comme étant un FormArray
+  get hobbies() : FormArray {
+    return this.registerForm.get('hobbies') as FormArray;
+  }
+
+  //Permet d'ajouter un nouveau control dans le tableau de hobbies ligne 27
+  addHobby() : void {
+    this.hobbies.push(this._fb.control(null, [Validators.required]));
+  }
+  //Supprimer un control grâce à son indice
+  removeHobby(indice : number) : void {
+    this.hobbies.removeAt(indice);
+  }
+
 
   createUser() {
     if(this.registerForm.valid) {

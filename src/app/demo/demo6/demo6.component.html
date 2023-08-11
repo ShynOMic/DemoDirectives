@@ -85,6 +85,20 @@
             *ngIf="registerForm.get('nationality')?.touched && registerForm.get('nationality')?.errors?.['required']">Champs requis</span>
         </div>
 
+        <div formArrayName="hobbies">
+            <div>Renseignez vos hobbies :</div>
+            <button type="button" class="btn" (click)="addHobby()">Ajouter un hobby :</button>
+
+            <div *ngFor="let control of hobbies.controls; let i = index">
+                <label [for]=" 'hobby'+i ">Hobby N°{{i+1}}</label>
+                <input [id]=" 'hobby'+i " type="text" [formControlName]="i">
+                <span class="select-none cursor-pointer" (click)="removeHobby(i)">❌</span>                
+                <span class="text-sm text-red-600"
+                *ngIf="hobbies.controls[i].touched && hobbies.controls[i].errors?.['required']">Ce champs est requis</span>
+            </div>
+
+        </div>
+
         <div>
             <input class="btn" type="submit" value="Créer mon compte">
         </div>
