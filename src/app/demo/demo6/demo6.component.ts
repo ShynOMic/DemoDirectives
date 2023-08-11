@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { beforeTodayValidator } from 'src/app/shared/validators/beforeToday.validator';
 
 @Component({
   selector: 'app-demo6',
@@ -17,15 +18,14 @@ export class Demo6Component {
       //nomControl : [value, [validateurs synchrones] , [validateurs asynchrones]]
       lastname : [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)] , []],
       firstname : [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)]],
-      birthdate : [null],
+      birthdate : [null, [ beforeTodayValidator() ]],
       email : [null, [Validators.required, Validators.email]],
       password : [null, [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/)]],
       gender : [null],
       single : [false, [Validators.required]],
       nationality : ['', [Validators.required]],
       //Hobbies n'est pas UN control mais un tableau avec plusieurs controls
-      hobbies : this._fb.array([]),
-     
+      hobbies : this._fb.array([]),     
     });
   }
 
