@@ -1,58 +1,88 @@
 <h2>Demo 6 - Les formulaires</h2>
 <div class="chapter">
-
-    <form class="w-4/6 m-auto">
+    <form class="w-4/6 m-auto" 
+        [formGroup]="registerForm"
+        (ngSubmit)="createUser()">
+        <!-- Pour utiliser [formGroup] on doit penser à importer ReactiveFormsModule -->
         <div class="form-group">
             <label for="lastname">Votre nom :</label>
-            <input id="lastname" type="text">
+            <input id="lastname" type="text" formControlName="lastname">
+            <!-- Marche mais pas précis -->
+            <!-- <span class="text-sm text-red-600"
+            *ngIf="!registerForm.get('lastname')?.valid">Error</span> -->
+            <span class="text-sm text-red-600"
+            *ngIf="registerForm.get('lastname')?.touched && registerForm.get('lastname')?.errors?.['required']">Champs requis</span>
+            <span class="text-sm text-red-600"
+            *ngIf="registerForm.get('lastname')?.errors?.['maxlength']">Maximum 100 caractères</span>
+            <span class="text-sm text-red-600"
+            *ngIf="registerForm.get('lastname')?.errors?.['pattern']">Vous ne pouvez pas rentrer de chiffres</span>
         </div>
 
         <div class="form-group">
             <label for="firstname">Votre prénom :</label>
-            <input id="firstname" type="text">
+            <input id="firstname" type="text" formControlName="firstname">
+            <span class="text-sm text-red-600"
+            *ngIf="registerForm.get('firstname')?.touched && registerForm.get('firstname')?.errors?.['required']">Champs requis</span>
+            <span class="text-sm text-red-600"
+            *ngIf="registerForm.get('firstname')?.errors?.['maxlength']">Maximum 100 caractères</span>
+            <span class="text-sm text-red-600"
+            *ngIf="registerForm.get('firstname')?.errors?.['pattern']">Vous ne pouvez pas rentrer de chiffres</span>
         </div>
 
         <div class="form-group">
             <label for="birthdate">Votre date de naissance :</label>
-            <input id="birthdate" type="date">
+            <input id="birthdate" type="date"
+            formControlName="birthdate">
         </div>
 
         <div class="form-group">
             <label for="mail">Votre mail :</label>
-            <input id="mail" type="email">
+            <input id="mail" type="email" formControlName="email">
+            <span class="text-sm text-red-600"
+            *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']">Champs requis</span>
+            <span class="text-sm text-red-600"
+            *ngIf="registerForm.get('email')?.errors?.['email']">Format de mail invalide</span>            
         </div>
 
         <div class="form-group">
             <label for="pwd">Votre mot de passe :</label>
-            <input id="pwd" type="password">
+            <input id="pwd" type="password" formControlName="password">
+            <span class="text-sm text-red-600"
+            *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.errors?.['required']">Champs requis</span>
+            <span class="text-sm text-red-600"
+            *ngIf="registerForm.get('password')?.errors?. ['pattern']">Votre mot de passe doit contenir au moins 8 caractères dont une minuscule, une majuscule et un chiffre</span>            
         </div>
 
         <div class="form-group">
             <div>Sélectionnez votre genre :</div>
             <div>
-                <input id="male" type="radio" value="male"><label for="male">Homme</label>
-                <input id="female" type="radio" value="female"><label for="female">Femme</label>
-                <input id="other" type="radio" value="other"><label for="other">Autre</label>
+                <input id="male" type="radio" value="male" formControlName="gender"><label for="male">Homme</label>
+
+                <input id="female" type="radio" value="female" formControlName="gender"><label for="female">Femme</label>
+
+                <input id="other" type="radio" value="other" formControlName="gender"><label for="other">Autre</label>
             </div>
         </div>
 
         <div class="form-group">
             <div>Situation maritale :</div>
             <div>
-                <input id="single" type="checkbox">
+                <input id="single" type="checkbox" formControlName="single">
                 <label for="single">Êtes-vous célibataire ?</label>
             </div>
         </div>
 
         <div class="form-group">
             <label for="nationality">Votre nationalité :</label>
-            <select id="nationality">
-                <option value="">Choisissez votre nationalité</option>
+            <select id="nationality" formControlName="nationality">
+                <option value="" hidden >Choisissez votre nationalité</option>
                 <option value="be">Belge</option>
                 <option value="fr">Français</option>
                 <option value="cg">Congolais</option>
                 <option value="ca">Canadien</option>
             </select>
+            <span class="text-sm text-red-600"
+            *ngIf="registerForm.get('nationality')?.touched && registerForm.get('nationality')?.errors?.['required']">Champs requis</span>
         </div>
 
         <div>
