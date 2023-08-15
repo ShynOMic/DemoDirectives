@@ -16,7 +16,7 @@
         @apply text-lg text-slate-600 mb-2;
     }
     h4 { 
-        @apply text-slate-600 py-2 border-b border-primary-300;
+        @apply text-slate-600 py-2 border-b border-red-300;
     }
     nav {
         li {
@@ -72,7 +72,7 @@
     
 
     .chapter {
-        @apply bg-primary-100 p-2 mb-2;
+        @apply bg-orange-100 p-2 mb-2;
     }
     .subchapter {
         @apply p-2 mb-2;
