@@ -1,34 +1,25 @@
+
 <h2>Demo 3 - Les directives</h2>
 
 <div class="chapter">
     <h3>Les components directives</h3>
-
-    <div class="subchapter">
-        <h4>ngModel</h4>
-        <p>Déjà vu, il permet de faire du Two Way Property Binding et a besoin de l'import du FormsModule pour fonctionner</p>
-        <a class="" routerLink="/demo/demo1">Voir Demo 1</a>
-    </div>
-
     <div class="subchapter">
         <h4>ngStyle</h4>
-        <p>Une touche de <span [ngStyle]="{color: favColor, backgroundColor : favColor2}">Chartreuse</span></p>
-        <div id="back">
-            <div id="front" [ngStyle]="{width: width + '%'}"></div>
-        </div>
+        <p> j'inverse les couleurs' <span [ngStyle]="{color: favColor, backgroundColor : favColor2}">brillant</span></p>
 
-        <button class="btn" (click)="fill()" [disabled]="timer">Remplir</button>
-        <button class="btn" (click)="empty()" [disabled]="!timer">Vider</button>
+        <button class="btn" (click)="invertColor(favColor,favColor2)">invert</button>
+    
     </div>
 
     <div class="subchapter">
         <h4>ngClass</h4>
-        <p [ngClass]="{big: isBig, pink : isPink, italic : isItalic}">Je suis du texte</p>
+        <p [ngClass]="{small: isSmaller, chartreuse : isChartreuse, oblique : isOblique}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore ipsa illo maiores nam modi accusantium! Quasi commodi dolorum porro, distinctio explicabo eius voluptas at fuga deleniti iure! Fuga, voluptate dolorem!</p>
         <div>
-            <button (click)="isBig = !isBig" class="btn">Gros/Pas Gros</button>
+            <button (click)="isSmaller = !isSmaller" class="btn">Petit format</button>
 
-            <button (click)="isPink = !isPink" class="btn">Rose/Pas rose</button>
+            <button (click)="isChartreuse = !isChartreuse" class="btn">Touche de goût ?</button>
 
-            <button (click)="isItalic = !isItalic" class="btn">Italique/Pas Italique</button>
+            <button (click)="isOblique = !isOblique" class="btn">Texte en oblique</button>
         </div>
     </div>
 </div>
@@ -38,33 +29,22 @@
 
     <div class="subchapter">
         <h4>ngIf</h4>
-        <div *ngIf="isDay">🌞 Jour 🌞</div>
-        <div *ngIf="!isDay">🌜 Nuit 🌛</div>
 
-        <div *ngIf="isDay ; else night ">🌞 Jour 🌞</div>
-        <ng-template #night>
-            <div>🌜 Nuit 🌛</div>
+        <div *ngIf="isWarm ; else cold ">🔥</div>
+        <ng-template #cold>
+            <div>🧊</div>
         </ng-template>
 
-        <button (click)="isDay = !isDay" class="btn">Jour/Nuit</button>
+        <button (click)="isWarm = !isWarm" class="btn">Chaud/Froid</button>
     </div>
 
     <div class="subchapter">
         <h4>ngFor</h4>
-        <h5>Exemple avec liste simple :</h5>
-        <ul>
-            <li *ngFor="let trainerName of trainersNameList; let i = index">
-               {{i}} - {{trainerName}}
-            </li>
-        </ul>
-
         <div class="flex justify-evenly items-center bg-slate-50 h-44">
-            <div *ngFor="let trainer of trainersList" class="bg-slate-200 h-5/6 w-1/5 rounded-lg flex flex-col items-center" [ngClass]="{'bg-pink-400': trainer.gender === 'f', 'bg-blue-400' : trainer.gender === 'm'}">
+            <div *ngFor="let book of HpList" class="bg-slate-200 h-5/6 w-1/5 rounded-lg flex flex-col items-center">
 
-                <div>{{ trainer.firstname }} {{ trainer.lastname}}</div>
-                <img class="h-3/6" [src]="trainer.avatar" [alt]="trainer.firstname">
-                <div>{{ trainer.birthdate | date : 'dd/MM/yyyy' }}</div>
-
+                <div>{{ book.name }}</div>
+                <img class="h-4/6 w2/3" [src]="book.avatar" [alt]="book.name">
             </div>
 
         </div>
@@ -72,18 +52,16 @@
 
     <div class="subchapter">
         <h4>ngSwitch</h4>
-        <div [ngSwitch]="meteo">
-            <div *ngSwitchCase=" 'bien' "> Je me sens ☀</div>
-            <div *ngSwitchCase=" 'bof' "> Je me sens ☁</div>
-            <div *ngSwitchCase=" 'pasbien' "> Je me sens 🌧</div>
-            <div *ngSwitchCase=" 'tg' "> Je me sens ⛈</div>
-            <div *ngSwitchDefault>Choisissez votre méteo du jour</div>
+        <div [ngSwitch]="menu">
+            <div *ngSwitchCase=" 'burger' "> Petit burger 🍔</div>
+            <div *ngSwitchCase=" 'Pizza' "> Petite pizza 🍕 </div>
+            <div *ngSwitchCase=" 'HotDog' "> Petit HotDog 🌭</div>
+            <div *ngSwitchDefault>Choisissez votre menu du jour !</div>
         </div>
         <div>
-            <button (click)="meteo = 'bien'" class="btn">Bien</button>
-            <button (click)="meteo = 'bof'" class="btn">Bof</button>
-            <button (click)="meteo = 'pasbien'" class="btn">Pas Bien</button>
-            <button (click)="meteo = 'tg'" class="btn">TG</button>
+            <button (click)="menu = 'burger' " class="btn">Hamburger</button>
+            <button (click)="menu = 'Pizza' " class="btn">Pizza</button>
+            <button (click)="menu = 'HotDog' " class="btn">HotDog</button>
         </div>
     </div>
 </div>
@@ -91,6 +69,6 @@
 <div class="chapter">
     <h3>Les attributes directives (Custom Directives)</h3>
     <div>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque dolore earum. <span highlight>Tempora</span> distinctio, aliquid soluta iste aut corporis, libero <span highlight bgColor="pink" color="green">cupiditate</span> ullam aperiam laudantium voluptate reiciendis. In neque quidem error.
+        <span highlight>click sur moi !</span> distinctio, aliquid soluta iste aut corpor
     </div>
 </div>

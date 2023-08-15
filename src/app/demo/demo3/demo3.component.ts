@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Trainer } from 'src/app/shared/models/trainers';
+import { Book } from 'src/app/shared/models/Book';
 
 @Component({
   selector: 'app-demo3',
@@ -11,47 +11,41 @@ export class Demo3Component {
   //ngStyle
   favColor : string = "#7FFF00";
   favColor2 : string = "darkblue";
-  width : number = 0;
-  timer : any = undefined;
+  tmp : string = "";
 
-  fill() : void {
-    this.timer = setInterval(() => {
-      if(this.width < 100) {
-        this.width+=10;
-      }
-    }, 100)
-  }
 
-  empty() : void {
-    clearInterval(this.timer);
-    this.timer = undefined;
-    this.width = 0;
+
+  invertColor(favColor : string,favColor2 : string) : void {
+   this.favColor = favColor2;
+   this.favColor2 = favColor;
+   
   }
 
   //ngClass
-  isBig : boolean = false;
-  isPink : boolean = false;
-  isItalic : boolean = false;
+  isSmaller : boolean = false;
+  isChartreuse : boolean = false;
+  isOblique : boolean = false;
 
   //#endregion
 
   //#region Structural
   //ngIf
-  isDay : boolean = true;
+  isWarm : boolean = true;
 
   //ngFor
-  trainersNameList : string[] = ['Khun', 'Gavin', 'Aude', 'Aurélien'];
 
-  trainersList : Trainer[] = [
-    { id : 0, firstname : 'Khun', lastname : 'Ly', birthdate : new Date(1982,4,6), gender : 'm', avatar : 'assets/images/khun.png' },
+  HpList : Book[] = [
+    { id : 0, name : 'Harry Potter 1',  avatar : 'assets/images/Hp1.jpg' },
 
-    { id : 1, firstname : 'Aude', lastname : 'Beurive', birthdate : new Date(1989,9,16), gender : 'f', avatar : 'assets/images/aude.png' },
+    { id : 1, name : 'Harry Potter 2',  avatar : 'assets/images/Hp2.jpg' },
 
-    { id : 2, firstname : 'Gavin', lastname : 'Chaineux', birthdate : new Date(1996,9,18), gender : 'nb', avatar : 'assets/images/gavin.png' }
+    { id : 2, name : 'Harry Potter 3', avatar : 'assets/images/Hp3.webp' },
+
+    { id : 3, name : 'Harry Potter 4', avatar : 'assets/images/Hp4.webp' }
   ];
 
   //ngSwitch
-  meteo : string|undefined = undefined;
+  menu : string|undefined = undefined;
 
   //#endregion
 
